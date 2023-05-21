@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ExampleController;
+use App\Http\Controllers\ExampleDataTableControler;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -39,4 +40,14 @@ Route::group(['prefix' => 'example', 'as' => 'example.'], function () {
     Route::get('/{example}/edit', [ExampleController::class, 'edit'])->name('edit');
     Route::put('/{example}/update', [ExampleController::class, 'update'])->name('update');
     Route::delete('/{example}/destroy', [ExampleController::class, 'destroy'])->name('destroy');
+});
+
+Route::group(['prefix' => 'example-data-table', 'as' => 'exampleDataTable.'], function () {
+    Route::get('/', [ExampleDataTableControler::class, 'index'])->name('index');
+    Route::get('/create', [ExampleDataTableControler::class, 'create'])->name('create');
+    Route::post('store', [ExampleDataTableControler::class, 'store'])->name('store');
+    Route::get('/{example}/show', [ExampleDataTableControler::class, 'show'])->name('show');
+    Route::get('/{example}/edit', [ExampleDataTableControler::class, 'edit'])->name('edit');
+    Route::put('/{example}/update', [ExampleDataTableControler::class, 'update'])->name('update');
+    Route::delete('/{example}/destroy', [ExampleDataTableControler::class, 'destroy'])->name('destroy');
 });
