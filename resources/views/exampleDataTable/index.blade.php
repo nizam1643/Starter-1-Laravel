@@ -55,6 +55,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Image</th>
                                 <th>Name</th>
                                 <th>Description</th>
                                 <th>Action</th>
@@ -64,6 +65,9 @@
                             @forelse ($examples as $example)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>
+                                        <img src="{{ asset('images/example/'.$example->image) }}" alt="{{ $example->name }}" class="img-fluid" style="width: 100px; height: 100px;">
+                                    </td>
                                     <td>{{ $example->name }}</td>
                                     <td>{{ $example->description }}</td>
                                     <td>
@@ -80,13 +84,14 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="4" class="text-center">No data</td>
+                                    <td colspan="5" class="text-center">No data</td>
                                 </tr>
                             @endforelse
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>#</th>
+                                <th>Image</th>
                                 <th>Name</th>
                                 <th>Description</th>
                                 <th>Action</th>

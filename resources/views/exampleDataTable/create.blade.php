@@ -32,7 +32,7 @@
                     </div>
                 @endif
 
-                <form method="POST" action="{{ route('exampleDataTable.store') }}">
+                <form method="POST" action="{{ route('exampleDataTable.store') }}" enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-4">
@@ -48,6 +48,14 @@
                             <label for="description">Description</label>
                             <textarea class="form-control" name="description">{{ old('description') }}</textarea>
                             @error('description')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <input type="file" class="form-control" name="image">
+                            @error('image')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>

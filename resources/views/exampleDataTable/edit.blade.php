@@ -32,7 +32,7 @@
                     </div>
                 @endif
 
-                <form method="POST" action="{{ route('exampleDataTable.update', $example->id) }}">
+                <form method="POST" action="{{ route('exampleDataTable.update', $example->id) }}" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
 
@@ -52,6 +52,14 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">Image</label>
+                        <input type="file" class="form-control" name="image">
+                        @error('image')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="d-flex justify-content-end">

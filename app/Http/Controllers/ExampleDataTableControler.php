@@ -29,12 +29,20 @@ class ExampleDataTableControler extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'description' => 'nullable'
+            'description' => 'nullable',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
         try {
             $storeExample = new Example();
             $storeExample->name = $request->name;
             $storeExample->description = $request->description;
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $name = time().'.'.$image->getClientOriginalExtension();
+                $destinationPath = public_path('/images/example');
+                $image->move($destinationPath, $name);
+                $storeExample->image = $name;
+            }
             $storeExample->save();
         } catch (\Exception $e) {
             Log::error($e->getMessage());
@@ -57,11 +65,19 @@ class ExampleDataTableControler extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'description' => 'nullable'
+            'description' => 'nullable',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         try {
             $example->name = $request->name;
             $example->description = $request->description;
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $name = time().'.'.$image->getClientOriginalExtension();
+                $destinationPath = public_path('/images/example');
+                $image->move($destinationPath, $name);
+                $example->image = $name;
+            }
             $example->save();
         } catch (\Exception $e) {
             Log::error($e->getMessage());

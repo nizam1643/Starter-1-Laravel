@@ -27,8 +27,14 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="description">{{ __('Description') }}</label>
+                        <label for="description">Description</label>
                         <textarea class="form-control" name="description" readonly>{{ $example->description }}</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Image</label>
+                        <br>
+                        <img src="{{ asset('images/example/' . $example->image) }}" alt="{{ $example->name }}" class="img-fluid" style="max-height: 200px;">
                     </div>
                 </div>
             </div>
