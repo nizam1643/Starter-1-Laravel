@@ -51,9 +51,9 @@
                     </div>
                 @endif
                 <div class="table-responsive">
-                    <table id="example1" class="table table-bordered">
+                    <table id="example1" class="table-bordered table-striped table">
                         <thead>
-                            <tr class="text-center">
+                            <tr>
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Description</th>
@@ -68,16 +68,12 @@
                                     <td>{{ $example->description }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
-                                            <a href="{{ route('exampleDataTable.show', $example->id) }}"
-                                                class="btn btn-sm btn-primary">Show</a>
-                                            <a href="{{ route('exampleDataTable.edit', $example->id) }}"
-                                                class="btn btn-sm btn-warning">Edit</a>
-                                            <form action="{{ route('exampleDataTable.destroy', $example->id) }}"
-                                                method="POST" class="d-inline">
+                                            <a href="{{ route('exampleDataTable.show', $example->id) }}" class="btn btn-sm btn-primary">Show</a>
+                                            <a href="{{ route('exampleDataTable.edit', $example->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                            <form action="{{ route('exampleDataTable.destroy', $example->id) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger"
-                                                    onclick="return confirm('Are you sure?')">Delete</button>
+                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
                                             </form>
                                         </div>
                                     </td>
@@ -88,6 +84,14 @@
                                 </tr>
                             @endforelse
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="" class="brand-link">
         <img src="{{ asset('template') }}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
             style="opacity: .8">
         <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
@@ -34,7 +34,7 @@
                     </a>
                 </li>
                 <li class="nav-item {{ Route::is('example.*') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ Route::is('exampleDataTable.*') ? 'active' : '' }} {{ Route::is('example.*') ? 'active' : '' }}">
+                    <a href="#" class="nav-link {{ Route::is('example.*') ? 'active' : '' }} {{ Route::is('example.*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa fa-paperclip"></i>
                         <p>
                             Example Pages
@@ -49,9 +49,18 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="nav-item {{ Route::is('exampleDataTable.*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ Route::is('exampleDataTable.*') ? 'active' : '' }} {{ Route::is('exampleDataTable.*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa fa-paperclip"></i>
+                        <p>
+                            Example DataTable
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('exampleDataTable.index') }}" class="nav-link {{ Route::is('exampleDataTable.index') ? 'active' : '' }}">
+                            <a href="{{ route('exampleDataTable.index') }}" class="nav-link {{ Route::is('exampleDataTable.*') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Example DataTable</p>
                             </a>

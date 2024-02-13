@@ -29,7 +29,7 @@ class ExampleDataTableControler extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'description' => 'required'
+            'description' => 'nullable'
         ]);
         try {
             $storeExample = new Example();
@@ -39,7 +39,7 @@ class ExampleDataTableControler extends Controller
         } catch (\Exception $e) {
             Log::error($e->getMessage());
             return redirect()->route('exampleDataTable.create')->with('error','Data unable to save');
-        } 
+        }
         return redirect()->route('exampleDataTable.index')->with('success','Data saved successfully');
     }
 
@@ -54,10 +54,10 @@ class ExampleDataTableControler extends Controller
     }
 
     public function update(Request $request, Example $example)
-    {    
+    {
         $request->validate([
             'name' => 'required',
-            'description' => 'required'
+            'description' => 'nullable'
         ]);
         try {
             $example->name = $request->name;
@@ -66,7 +66,7 @@ class ExampleDataTableControler extends Controller
         } catch (\Exception $e) {
             Log::error($e->getMessage());
             return redirect()->route('exampleDataTable.edit')->with('error','Data unable to update');
-        } 
+        }
         return redirect()->route('exampleDataTable.index')->with('success','Data updated successfully');
     }
 
@@ -77,7 +77,7 @@ class ExampleDataTableControler extends Controller
         } catch (\Exception $e) {
             Log::error($e->getMessage());
             return redirect()->route('exampleDataTable.index')->with('error','Data unable to delete');
-        } 
+        }
         return redirect()->route('exampleDataTable.index')->with('success','Data deleted successfully');
     }
 }

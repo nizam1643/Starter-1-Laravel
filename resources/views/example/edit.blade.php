@@ -38,7 +38,7 @@
 
                     <div class="mb-4">
                         <div class="form-group">
-                            <label for="name">Name</label>
+                            <label for="name">Name <span class="text-danger">*</span></label>
                             <input type="text" required class="form-control" name="name" value="{{ $example->name }}">
                             @error('name')
                                 <span class="text-danger">{{ $message }}</span>
@@ -46,8 +46,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="description">{{ __('Description') }}</label>
-                            <textarea class="form-control" required name="description">{{ $example->description }}</textarea>
+                            <label for="description">Description</label>
+                            <textarea class="form-control" name="description">{{ $example->description }}</textarea>
                             @error('description')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
