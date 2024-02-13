@@ -36,6 +36,11 @@
                         <br>
                         <img src="{{ asset('images/example/' . $example->image) }}" alt="{{ $example->name }}" class="img-fluid" style="max-height: 200px;">
                     </div>
+
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <input type="text" class="form-control" name="status" value="{{ $example->status }}" readonly>
+                    </div>
                 </div>
             </div>
         </div>

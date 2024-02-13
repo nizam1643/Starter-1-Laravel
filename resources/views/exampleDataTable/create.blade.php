@@ -59,6 +59,18 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select class="form-control" name="status">
+                                <option value="">Select Status</option>
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                            @error('status')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
 
                     <div class="d-flex justify-content-end">

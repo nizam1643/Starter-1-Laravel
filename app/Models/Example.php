@@ -14,6 +14,7 @@ class Example extends Model
     protected $fillable = [
         'title',
         'description',
-        'image'
+        'image',
+        'status'
     ];
 }

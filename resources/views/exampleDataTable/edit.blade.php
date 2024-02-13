@@ -62,6 +62,18 @@
                         @enderror
                     </div>
 
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select class="form-control" name="status">
+                            <option value="">Select Status</option>
+                            <option value="Active" {{ $example->status == 'Active' ? 'selected' : '' }}>Active</option>
+                            <option value="Inactive" {{ $example->status == 'Inactive' ? 'selected' : '' }}>Inactive</option>
+                        </select>
+                        @error('status')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn btn-block btn-success">Update</button>
                     </div>
